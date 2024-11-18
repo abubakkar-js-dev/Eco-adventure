@@ -7,18 +7,24 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Keyboard, Pagination, Navigation } from 'swiper/modules';
-import { useLoaderData } from 'react-router-dom';
+import { Keyboard, Pagination, Navigation,Autoplay } from 'swiper/modules';
 import SingleSlide from './SingleSlide';
+import { useContext } from 'react';
+import { BlogsContext } from '../pages/Home';
 
 const Banner = () => {
 
-  const allBlogs = useLoaderData();
+  // const allBlogs = useLoaderData();
+  const allBlogs = useContext(BlogsContext);
   const sliderBlogs = allBlogs.slice(0,6);
 
   return (
-    <>
+    <div className='mb-12 md:mb-16 lg:mb-[100px]'>
       <Swiper
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         slidesPerView={1}
         spaceBetween={30}
         keyboard={{
@@ -28,7 +34,7 @@ const Banner = () => {
           clickable: true,
         }}
         navigation={true}
-        modules={[Keyboard, Pagination, Navigation]}
+        modules={[Keyboard, Pagination, Navigation,Autoplay]}
         className="mySwiper h-[450px]"
       >
         {sliderBlogs.map(blog => <SwiperSlide key={blog.id}>
@@ -36,7 +42,7 @@ const Banner = () => {
         </SwiperSlide>)}
     
       </Swiper>
-    </>
+    </div>
   );
 }
 

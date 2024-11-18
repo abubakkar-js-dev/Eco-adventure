@@ -44,7 +44,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
             <img className="h-8 w-8 md:w-10 md:h-10 mr-3" src={userImg} alt="Uger img" />
-          <a className="btn bg-burnt-orange text-white px-6 py-2">Login</a>
+          <a className="btn bg-orange-400 hover:bg-orange-500 text-white px-6 py-2">Login</a>
         </div>
       </div>
     </div>
