@@ -3,7 +3,7 @@ import { BlogsContext } from "../pages/Home";
 import FavCountryCard from "./FavCountryCard";
 
 const FavoriteCountries = () => {
-  const allBlogs = useContext(BlogsContext);
+  const allBlogs = useContext(BlogsContext) || [];
   const favCountriesExp = allBlogs.slice(6);
 
   return (

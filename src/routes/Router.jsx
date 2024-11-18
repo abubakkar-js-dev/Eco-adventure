@@ -5,6 +5,9 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import UpdateProfile from "../pages/UpdateProfile";
 import UserProfile from "../pages/UserProfile";
+import AuthLayout from "../layouts/AuthLayout";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
   const router = createBrowserRouter([
     {
@@ -14,7 +17,7 @@ import UserProfile from "../pages/UserProfile";
         {
             path: '/',
             element: <Home />,
-            loader: () => fetch('blogs.json'),
+            // loader: () => fetch('blogs.json'),
         },
         {
             path: '/update-profile',
@@ -28,6 +31,20 @@ import UserProfile from "../pages/UserProfile";
       ],
       
     },
+    {
+      path: 'auth',
+      element: <AuthLayout />,
+      children: [
+        {
+          path: '/auth/login',
+          element: <Login />
+        },
+        {
+          path: '/auth/register',
+          element: <Register />
+        }
+      ]
+    }
   ]);
 
   export default router

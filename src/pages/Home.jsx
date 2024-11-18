@@ -1,7 +1,6 @@
-import { useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import Blogs from "../components/Blogs";
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import FavoriteCountries from "../components/FavoriteCountries";
 import Adventures from "../components/Adventures";
 
@@ -9,8 +8,12 @@ import Adventures from "../components/Adventures";
 export const BlogsContext = createContext([]);
 
 const Home = () => {
-  const allBlogs = useLoaderData();
-  console.log("From Home", allBlogs);
+  const [allBlogs,setAllBlogs] = useState([]);
+  useEffect(()=>{
+    fetch('blogs.json')
+    .then(res => res.json())
+    .then(data => setAllBlogs(data));
+  },[]);
   return (
     <BlogsContext.Provider value={allBlogs}>
       <div>
