@@ -8,7 +8,7 @@ const Navbar = () => {
         <li><NavLink to={'/user-profile'}>User Profile</NavLink></li>
     </>
   return (
-    <div className=" bg-primary/40">
+    <div className=" bg-cyan-300">
       <div className="navbar container">
         <div className="navbar-start">
           <div className="dropdown">

@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Blogs from "../components/Blogs";
 import { createContext } from "react";
 import FavoriteCountries from "../components/FavoriteCountries";
+import Adventures from "../components/Adventures";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const BlogsContext = createContext([]);
@@ -20,6 +21,8 @@ const Home = () => {
           <Blogs />
             {/* Fav countries */}
           <FavoriteCountries />
+          {/* Adventures */}
+          <Adventures />
         </main>
       </div>
     </BlogsContext.Provider>
