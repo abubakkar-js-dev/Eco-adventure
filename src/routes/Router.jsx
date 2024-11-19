@@ -8,6 +8,7 @@ import UserProfile from "../pages/UserProfile";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import BlogDetails from "../pages/BlogDetails";
 
   const router = createBrowserRouter([
     {
@@ -27,6 +28,11 @@ import Register from "../pages/Register";
         {
             path: '/user-profile',
             element: <UserProfile />
+        },
+        {
+          path: 'blog-details/:id',
+          element: <BlogDetails />,
+          loader: () => fetch('/blogs.json'),
         }
       ],
       

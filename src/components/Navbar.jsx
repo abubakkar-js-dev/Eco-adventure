@@ -30,7 +30,7 @@ const Navbar = () => {
     })
   }
   return (
-    <div className=" bg-cyan-300">
+    <div className=" bg-cyan-50">
       <div className="navbar container">
         <div className="navbar-start">
           <div className="dropdown">
@@ -58,7 +58,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-xl text-burnt-orange">
-            Eco- <span className="!text-green-500">adventure</span>{" "}
+            Eco- <span className="!text-cyan-500">adventure</span>{" "}
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -87,7 +87,7 @@ const Navbar = () => {
           ) : (
             <Link
               to={"/auth/login"}
-              className="btn bg-orange-400 hover:bg-orange-500 text-white px-6 py-2"
+              className="btn bg-orange-300 hover:bg-orange-500 text-white px-6 py-2"
             >
               Login
             </Link>

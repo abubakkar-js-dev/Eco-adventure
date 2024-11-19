@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const FavCountryCard = ({blog}) => {
   const countryName = blog.location.split(',')[1] || blog.location.split(',')[0];
-  console.log(countryName);
+  
     return (
       <div className="group relative w-full h-80 overflow-hidden cursor-pointer flex flex-col items-center justify-center">
         {/* Background Image */}
