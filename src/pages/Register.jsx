@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import registerSvg from "../assets/svg/sign_up.svg";
 import { FaGoogle } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
   const { createNewUser, updateUserProfile, setUser, loginWithGoogle } =
     useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const [error,setError] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +20,11 @@ const Register = () => {
     const photoUrl = form.photo.value;
     const password = form.password.value;
 
-    console.log(name, email);
+    const validatePassword = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if(!validatePassword.test(password)){
+      setError({...error,regis: 'Password must be an uppercase, a lowercase and at least 6 character.'});
+      return;
+    }
 
     createNewUser(email, password)
       .then((result) => {
@@ -25,16 +32,17 @@ const Register = () => {
         e.target.reset();
         // update profile
         updateUserProfile({ displayName: name, photoURL: photoUrl })
-        .then(()=>{
-            console.log('updated profile')
-        })
-        .catch(err=>{
-            console.log(err.message);
-        })
+          .then(() => {
+            navigate("/");
+          })
+          .catch((err) => {
+            const errorMessage = err.message;
+            setError({...error,regis: errorMessage});
+          });
       })
       .catch((err) => {
         const errorMessage = err.message;
-        console.log(errorMessage);
+        setError({...error,regis: errorMessage});
       });
   };
 
@@ -42,9 +50,11 @@ const Register = () => {
     loginWithGoogle()
       .then((result) => {
         setUser(result.user);
+        navigate('/');
       })
-      .catch((error) => {
-        console.log("Google Error", error);
+      .catch((err) => {
+        const errorMessage = err.message;
+        setError({...error,regis: errorMessage});
       });
   };
 
@@ -116,15 +126,10 @@ const Register = () => {
               className="input input-bordered w-full"
               required
             />
-            <label className="label flex justify-end">
-              <a
-                href="#"
-                className="label-text-alt link link-hover text-orange-500"
-              >
-                Forgot password?
-              </a>
-            </label>
           </div>
+          {
+            error.regis && <label className="label text-xs text-red-500">{error.regis}</label>
+          }
           <div className="form-control mt-6">
             <button className="btn  w-full text-white bg-orange-400 hover:bg-orange-500">
               Register

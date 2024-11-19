@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginSvg from "../assets/svg/login.svg";
 import { FaGoogle } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
   const { signInUser,loginWithGoogle, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [errror,setError] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,10 +19,12 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         event.target.reset();
+        navigate('/');
+
       })
       .catch((err) => {
         const errorMessage = err.message;
-        console.log(errorMessage);
+        setError(errorMessage);
       });
   };
 
@@ -28,10 +32,11 @@ const Login = () => {
     loginWithGoogle()
     .then(result =>{
         setUser(result.user);
+        navigate('/');
     })
     .catch(err =>{
         const errorMessage = err.message;
-        console.log(errorMessage);
+        setError(errorMessage);
     })
   }
 
@@ -86,6 +91,9 @@ const Login = () => {
               </a>
             </label>
           </div>
+          {
+            errror && <label className="label text-xs text-red-500">{errror}</label>
+          }
           <div className="form-control mt-6">
             <button className="btn  w-full text-white bg-orange-400 hover:bg-orange-500">
               Login
