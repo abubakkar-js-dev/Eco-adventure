@@ -16,7 +16,7 @@ const MyProfile = () => {
         </div>
       </div>
       <div>
-        <h3 className="uppercase text-orange-500">Hey There</h3>
+        <h3 className="uppercase text-orange-500">Hey There,</h3>
       <h2 className="text-2xl font-bold mb-4">
         I am, {user.displayName || "User"}!
       </h2>

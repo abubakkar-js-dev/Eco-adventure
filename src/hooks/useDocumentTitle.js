@@ -13,6 +13,7 @@ const useDocumentTitle = (dynamicTitle) => {
             '/auth/login' : 'Login',
             '/auth/register' : 'Register',
             '/blog-details/:id' : dynamicTitle,
+            '/auth/forget-password' : 'Forget Password',
     
         }
         let title;

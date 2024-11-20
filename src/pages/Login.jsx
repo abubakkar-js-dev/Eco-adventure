@@ -12,6 +12,7 @@ const Login = () => {
   const [errror,setError] = useState('');
   const location = useLocation();
   const fromPath = location.state || '/';
+  const [email,setEmail] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -67,6 +68,7 @@ const Login = () => {
               <span className="label-text font-medium">Email</span>
             </label>
             <input
+              onChange={(e)=> setEmail(e.target.value)}
               name="email"
               type="email"
               placeholder="Enter your email"
@@ -87,12 +89,13 @@ const Login = () => {
               required
             />
             <label className="label flex justify-end">
-              <a
-                href="#"
+              <Link
+              state={email}
+                to={'/auth/forget-password'}
                 className="label-text-alt link link-hover text-orange-500"
               >
                 Forgot password?
-              </a>
+              </Link>
             </label>
           </div>
           {
