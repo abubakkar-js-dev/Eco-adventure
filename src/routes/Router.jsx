@@ -1,16 +1,16 @@
 import {
-    createBrowserRouter,
-  } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/Home";
-import UpdateProfile from "../pages/UpdateProfile";
-import UserProfile from "../pages/UserProfile";
+  createBrowserRouter,
+} from "react-router-dom";
 import AuthLayout from "../layouts/AuthLayout";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+import MainLayout from "../layouts/MainLayout";
 import BlogDetails from "../pages/BlogDetails";
-import PrivateRoute from "./PrivateRoute";
 import Errorpage from "../pages/Errorpage";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import MyProfile from "../pages/MyProfile";
+import Register from "../pages/Register";
+import UpdateProfile from "../pages/UpdateProfile";
+import PrivateRoute from "./PrivateRoute";
 
   const router = createBrowserRouter([
     {
@@ -30,7 +30,7 @@ import Errorpage from "../pages/Errorpage";
         },
         {
             path: '/user-profile',
-            element: <UserProfile />
+            element: <PrivateRoute><MyProfile /></PrivateRoute>
         },
         {
           path: 'blog-details/:id',
