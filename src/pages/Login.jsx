@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginSvg from "../assets/svg/login.svg";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
@@ -8,6 +8,8 @@ const Login = () => {
   const { signInUser,loginWithGoogle, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [errror,setError] = useState('');
+  const location = useLocation();
+  const fromPath = location.state || '/';
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,7 +21,7 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         event.target.reset();
-        navigate('/');
+        navigate(fromPath);
 
       })
       .catch((err) => {
@@ -32,7 +34,7 @@ const Login = () => {
     loginWithGoogle()
     .then(result =>{
         setUser(result.user);
-        navigate('/');
+        navigate(fromPath);
     })
     .catch(err =>{
         const errorMessage = err.message;

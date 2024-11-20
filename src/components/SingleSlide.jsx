@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SingleSlide = ({ blog }) => {
   return (
@@ -18,9 +19,9 @@ const SingleSlide = ({ blog }) => {
       <div className="relative z-10 text-center text-white flex flex-col justify-center items-center h-full">
         <h1 className="text-3xl font-semibold">{blog.adventureTitle}</h1>
         <p className="mt-2 text-xl">This is a best Winter Adventure</p>
-        <button className="mt-4 px-6 py-2 bg-orange-400 hover:bg-orange-500 text-white rounded">
+        <Link to={`/blog-details/${blog.id}`} className="mt-4 px-6 py-2 bg-orange-400 hover:bg-orange-500 text-white rounded">
           Discover More
-        </button>
+        </Link>
       </div>
     </div>
   );

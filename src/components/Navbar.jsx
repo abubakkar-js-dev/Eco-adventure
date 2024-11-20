@@ -8,13 +8,13 @@ const Navbar = () => {
   const Links = (
     <>
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink className="text-black" to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/update-profile"}>Update Profile</NavLink>
+        <NavLink className="text-black" to={"/update-profile"}>Update Profile</NavLink>
       </li>
       <li>
-        <NavLink to={"/user-profile"}>User Profile</NavLink>
+        <NavLink className="text-black" to={"/user-profile"}>My Profile</NavLink>
       </li>
     </>
   );
@@ -30,7 +30,7 @@ const Navbar = () => {
     })
   }
   return (
-    <div className=" bg-cyan-50">
+    <div className="sticky top-0 z-20 bg-cyan-500 backdrop-filter backdrop-blur-lg bg-opacity-30">
       <div className="navbar container">
         <div className="navbar-start">
           <div className="dropdown">
@@ -69,7 +69,7 @@ const Navbar = () => {
             user && user?.email ? (
               <img
               className="h-8 w-8 md:w-10 md:h-10 mr-3 rounded-full"
-              src={user.photoURL}
+              src={user.photoURL || userImg}
               alt="Uger img"
             />
             ) : (

@@ -9,11 +9,14 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import BlogDetails from "../pages/BlogDetails";
+import PrivateRoute from "./PrivateRoute";
+import Errorpage from "../pages/Errorpage";
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout />,
+      errorElement: <h2>Page not found</h2>,
       children: [
         {
             path: '/',
@@ -31,7 +34,7 @@ import BlogDetails from "../pages/BlogDetails";
         },
         {
           path: 'blog-details/:id',
-          element: <BlogDetails />,
+          element: <PrivateRoute><BlogDetails /></PrivateRoute>,
           loader: () => fetch('/blogs.json'),
         }
       ],
@@ -50,7 +53,11 @@ import BlogDetails from "../pages/BlogDetails";
           element: <Register />
         }
       ]
-    }
+    },
+    {
+      path: '*',
+      element: <Errorpage />
+    },
   ]);
 
   export default router
