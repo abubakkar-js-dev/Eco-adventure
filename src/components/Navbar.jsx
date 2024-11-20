@@ -74,7 +74,7 @@ const Navbar = () => {
             />
             ) : (
               <img
-              className="h-8 w-8 md:w-10 md:h-10 mr-3"
+              className="h-8 w-8 md:w-10 md:h-10 mr-3 "
               src={userImg}
               alt="Uger img"
             />
