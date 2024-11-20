@@ -9,7 +9,7 @@ const useDocumentTitle = (dynamicTitle) => {
         const routesTitle = {
             '/': 'Home',
             '/update-profile' : 'Update Profile',
-            '/user-profile' : 'My Profile',
+            '/my-profile' : 'My Profile',
             '/auth/login' : 'Login',
             '/auth/register' : 'Register',
             '/blog-details/:id' : dynamicTitle,

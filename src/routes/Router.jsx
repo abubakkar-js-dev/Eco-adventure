@@ -17,7 +17,7 @@ import ForgetPassword from "../pages/ForgetPassword";
     {
       path: "/",
       element: <MainLayout />,
-      errorElement: <h2>Page not found</h2>,
+      errorElement: <Errorpage />,
       children: [
         {
             path: '/',
@@ -30,7 +30,7 @@ import ForgetPassword from "../pages/ForgetPassword";
 
         },
         {
-            path: '/user-profile',
+            path: '/my-profile',
             element: <PrivateRoute><MyProfile /></PrivateRoute>
         },
         {
