@@ -1,12 +1,15 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import unavailableIcon from '../assets/icons/unavailable.png'
 import { useRef } from "react";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const BlogDetails = () => {
   const { id } = useParams();
   const allBlogs = useLoaderData();
   const blog = allBlogs.find((blog) => blog.id === parseInt(id));
   const modalRef = useRef(null);
+
+  useDocumentTitle(blog.adventureTitle);
 
   const {
     adventureTitle,

@@ -3,8 +3,10 @@ import registerSvg from "../assets/svg/sign_up.svg";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const Register = () => {
+  useDocumentTitle();
   const { createNewUser, updateUserProfile, setUser, loginWithGoogle } =
     useContext(AuthContext);
 

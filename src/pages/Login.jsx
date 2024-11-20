@@ -3,8 +3,10 @@ import loginSvg from "../assets/svg/login.svg";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const Login = () => {
+  useDocumentTitle();
   const { signInUser,loginWithGoogle, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [errror,setError] = useState('');
