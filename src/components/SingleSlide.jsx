@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SingleSlide = ({ blog }) => {
   return (
     <div
-      className="relative h-[470px] w-full bg-cover bg-center"
+      className="relative h-[570px] min-h-[50vh] w-full bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url('${
           blog.image ||
@@ -17,7 +17,7 @@ const SingleSlide = ({ blog }) => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white flex flex-col justify-center items-center h-full">
-        <h1 className="text-3xl font-semibold">{blog.adventureTitle}</h1>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold">{blog.adventureTitle}</h1>
         <p className="mt-2 text-xl">This is a best Winter Adventure</p>
         <Link to={`/blog-details/${blog.id}`} className="mt-4 px-6 py-2 bg-orange-400 hover:bg-orange-500 text-white rounded">
           Discover More

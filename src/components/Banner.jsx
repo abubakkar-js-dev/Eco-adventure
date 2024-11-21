@@ -35,7 +35,7 @@ const Banner = () => {
         }}
         navigation={true}
         modules={[Keyboard, Pagination, Navigation,Autoplay]}
-        className="mySwiper h-[450px]"
+        className="mySwiper"
       >
         {sliderBlogs.map(blog => <SwiperSlide key={blog.id}>
             <SingleSlide blog={blog} />

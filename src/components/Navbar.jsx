@@ -11,22 +11,32 @@ const Navbar = () => {
   const Links = (
     <>
       <li>
-        <NavLink className="text-black" to={"/"}>
+        <NavLink
+          className="text-black"
+          to="/"
+        >
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink className="text-black" to={"/update-profile"}>
+        <NavLink
+          className="text-black"
+          to="/update-profile"
+        >
           Update Profile
         </NavLink>
       </li>
       <li>
-        <NavLink className="text-black" to={"/my-profile"}>
+        <NavLink
+          className="text-black"
+          to="/my-profile"
+        >
           My Profile
         </NavLink>
       </li>
     </>
   );
+  
 
   const handleLogOut = () => {
     logOutUser()
@@ -104,7 +114,7 @@ const Navbar = () => {
           ) : (
             <Link
               to={"/auth/login"}
-              className="btn bg-orange-300 hover:bg-orange-500 text-white px-6 py-2"
+              className="btn bg-orange-400 hover:bg-orange-500 text-white px-6 py-2"
             >
               Login
             </Link>
