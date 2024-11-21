@@ -4,33 +4,38 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-  const { user,logOutUser} = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
 
-  
   const Links = (
     <>
       <li>
-        <NavLink className="text-black" to={"/"}>Home</NavLink>
+        <NavLink className="text-black" to={"/"}>
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink className="text-black" to={"/update-profile"}>Update Profile</NavLink>
+        <NavLink className="text-black" to={"/update-profile"}>
+          Update Profile
+        </NavLink>
       </li>
       <li>
-        <NavLink className="text-black" to={"/my-profile"}>My Profile</NavLink>
+        <NavLink className="text-black" to={"/my-profile"}>
+          My Profile
+        </NavLink>
       </li>
     </>
   );
 
-  const handleLogOut = () =>{
+  const handleLogOut = () => {
     logOutUser()
-    .then(() =>{
-      console.log('sign out succesfully');
-    })
-    .catch(err =>{
-      const errorMessage = err.message;
-      console.log(errorMessage);
-    })
-  }
+      .then(() => {
+        console.log("sign out succesfully");
+      })
+      .catch((err) => {
+        const errorMessage = err.message;
+        console.log(errorMessage);
+      });
+  };
   return (
     <div className="sticky top-0 z-20 bg-cyan-500 backdrop-filter backdrop-blur-lg bg-opacity-30">
       <div className="navbar container">
@@ -67,23 +72,31 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{Links}</ul>
         </div>
         <div className="navbar-end">
-          {
-            user && user?.email ? (
-              <img
-              className="h-8 w-8 md:w-10 md:h-10 mr-3 rounded-full ring-1 ring-orange-400 ring-offset-1"
-              src={user.photoURL || userImg}
-              alt="Uger img"
-            />
-            ) : (
-              <img
+          {user && user?.email ? (
+            <div className="flex justify-center items-center">
+              <div
+                className="tooltip tooltip-left "
+                data-tip={user.displayName}
+              >
+                <img
+                  className="h-8 w-8 md:w-10 md:h-10 mr-3 rounded-full ring-1 ring-orange-400 ring-offset-1"
+                  src={user.photoURL || userImg}
+                  alt="Uger img"
+                />
+              </div>
+            </div>
+          ) : (
+            <img
               className="h-8 w-8 md:w-10 md:h-10 mr-3 "
               src={userImg}
               alt="Uger img"
             />
-            )
-          }
+          )}
           {user && user?.email ? (
-            <button onClick={handleLogOut} className="btn bg-orange-400 hover:bg-orange-500 text-white px-6 py-2">
+            <button
+              onClick={handleLogOut}
+              className="btn bg-orange-400 hover:bg-orange-500 text-white px-6 py-2"
+            >
               Log Out
             </button>
           ) : (
