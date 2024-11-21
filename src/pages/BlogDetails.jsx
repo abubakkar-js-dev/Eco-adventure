@@ -30,7 +30,7 @@ const BlogDetails = () => {
   const handleTalkWithBtn = () =>{
     const date = new Date();
     const currentHour = date.getHours();
-    console.log(currentHour);
+    // console.log(currentHour);
 
     if(currentHour >= 10 && currentHour < 20){
         window.open("https://meet.google.com","_blank");

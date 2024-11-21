@@ -1,17 +1,27 @@
 import { useLocation } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const ForgetPassword = () => {
     useDocumentTitle();
+    const {resetPassword} = useContext(AuthContext);
     const location = useLocation();
     // const [email,setEmail] = location.state;
     const prevEmail = location?.state || '';
     const [email,setEmail] = useState(prevEmail);
-    console.log(prevEmail);
+    const [error, setError] = useState('');
+    // console.log(prevEmail);
 
     const handleResetPassword = () =>{
+      resetPassword(email)
+      .then(() =>{
         window.open('https://mail.google.com','_blank');
+      })
+      .catch(err => {
+        const errorMessage = err.message;
+        setError(errorMessage);
+      })
     }
 
     return (
@@ -43,6 +53,7 @@ const ForgetPassword = () => {
                 required
               />
             </div>
+            {error && <label className="label text-xs text-red-500">{error}</label>}
             <button
               type="submit"
               className="w-full py-2 bg-orange-400 text-white rounded-md hover:bg-orange-500 transition"

@@ -1,10 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import userImg from "../assets/images/user.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
+  // eslint-disable-next-line no-unused-vars
+  const [logOutError, setLogOutError] = useState("");
 
   const Links = (
     <>
@@ -29,11 +31,11 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOutUser()
       .then(() => {
-        console.log("sign out succesfully");
+        // console.log("sign out succesfully");
       })
       .catch((err) => {
         const errorMessage = err.message;
-        console.log(errorMessage);
+        setLogOutError(errorMessage);
       });
   };
   return (

@@ -7,7 +7,7 @@ const MyProfile = () => {
   useDocumentTitle();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
   return (
     <div className="container min-h-[calc(100vh-68px)]">
       <div className="flex flex-col bg-gradient-to-b from-gray-50 to-orange-50/40 p-6 rounded-b-lg  border  max-w-screen-sm w-full mx-auto mb-12 md:mb-16 lg:mb-[100px]">

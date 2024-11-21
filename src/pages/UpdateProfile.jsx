@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
@@ -9,9 +9,9 @@ const UpdateProfile = () => {
   const navigate = useNavigate();
   const nameRef = useRef();
   const photoRef = useRef();
+  const [error,setError] = useState('');
 
   const handleUpdate = () => {
-    console.log("Hello");
     const name = nameRef.current.value;
     const photoURL = photoRef.current.value;
     updateUserProfile({displayName: name, photoURL: photoURL})
@@ -23,7 +23,7 @@ const UpdateProfile = () => {
     })
     .catch(err =>{
         const errorMessage = err.message;
-        console.log(errorMessage);
+        setError(errorMessage);
     })
   };
   return (
@@ -62,6 +62,7 @@ const UpdateProfile = () => {
               required
             />
           </div>
+          {error && <label className="label text-xs text-red-500">${error}</label>}
           <div className="form-control mt-6">
             <button
               onClick={handleUpdate}
