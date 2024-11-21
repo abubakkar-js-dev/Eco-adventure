@@ -1,8 +1,24 @@
-# React + Vite
+# Eco-Adventure
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
+Eco-Adventure is a travel blogging platform that shares information about nature, adventures, and exploration experiences. The website aims to inspire and inform people about various eco-friendly adventures and destinations.
 
-Currently, two official plugins are available:
+## Live URL
+You can view the live project here: [Eco-Adventure](https://eco-adventure-auth.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+- Dynamic title for each route.
+- User profile section with personal data.
+- Private routes and access control.
+- Profile update functionality.
+- User authentication with Firebase (sign up, login, password reset).
+- Google login integration.
+- Fully responsive and Single Page Application (SPA).
+
+## NPM Packages Used
+- **Swiper**: For creating the interactive image slider.
+- **Animate.css**: For smooth animations and transitions across the site.
+
+---
+
+Thank you for checking out Eco-Adventure!
