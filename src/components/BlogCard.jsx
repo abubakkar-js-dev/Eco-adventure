@@ -41,7 +41,7 @@ const BlogCard = ({ blog }) => {
           onClick={() => navigate(`/blog-details/${blog.id}`)}
           className="mt-4 flex items-center gap-2 px-4 py-2 bg-cyan-500 text-white rounded hover:bg-cyan-600"
         >
-          Explore More <FaArrowRight />
+          Explore Now <FaArrowRight />
         </button>
       </div>
     </div>

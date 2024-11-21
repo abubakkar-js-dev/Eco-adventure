@@ -42,8 +42,8 @@ const BlogDetails = () => {
   }
 
   return (
-    <div className="container mx-auto p-6 mb-12 md:mb-16 lg:mb-[100px]">
-      <div className="flex flex-col lg:flex-row bg-white shadow-md rounded-lg overflow-hidden p-8">
+    <div className="container mx-auto mb-12 md:mb-16 lg:mb-[100px]">
+      <div className="flex flex-col lg:flex-row bg-white shadow-md rounded-lg overflow-hidden p-4 md:p-6 lg:p-8">
         {/* Left Side: Image */}
         <div className="lg:w-1/2">
           <img

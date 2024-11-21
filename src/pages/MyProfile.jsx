@@ -18,21 +18,21 @@ const MyProfile = () => {
         </div>
         <div>
           <h3 className="uppercase text-orange-500">Hey There,</h3>
-          <h2 className="text-2xl font-bold mb-4">
+          <h2 className="text-xl md:text-2xl font-bold mb-4">
             I am, {user.displayName || "User"}!
           </h2>
         </div>
         <div className="text-left w-full">
-          <p className="text-lg mb-2">
+          <p className="text-base md:text-lg mb-2">
             <strong>Name:</strong> {user.displayName || "Not provided"}
           </p>
-          <p className="text-lg  mb-2">
+          <p className="text-base md:text-lg  mb-2">
             <strong>Email:</strong> {user.email}
           </p>
         </div>
         <button
           onClick={() => navigate("/update-profile")}
-          className="mt-4 px-6 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-600 transition justify-start flex-grow-0"
+          className="mt-4 px-6 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-600 transition justify-start flex-grow-0 text-base"
         >
           Update Profile
         </button>
